@@ -1,0 +1,6 @@
+*.md
+*.json
+*.lock
+.gitignore
+.DS_Store
+/lesson6/vendor
