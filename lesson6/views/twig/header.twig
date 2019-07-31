@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="views/css/norm.css">
+    <link rel="stylesheet" href="views/css/style.css">
+</head>
+<body>
+<div id="app" class="wrapper">
+    <div class="top">
+        <header class="header">
+            <div class="container header-flex">
+                <div class="header-left">
+                    <a class="logo" href="./"><img class="logo-img" src="img/logo.png" alt="logo">BRAN<span
+                                class="logo-d">D</span></a>
+                    <form class="form" action="#">
+                        <div class="form-browse">Browse
+                            <i class="fa fa-caret-down"></i>
+                            <div class="dropdown-search">
+                                <a href="catalog" class="dropdown-search-header">women</a>
+                                <ul class="search-list">
+                                    <li><a class="search-list-item" href="catalog">Dresses</a></li>
+                                    <li><a class="search-list-item" href="catalog">Tops</a></li>
+                                    <li><a class="search-list-item" href="catalog">Sweaters/Knits</a></li>
+                                    <li><a class="search-list-item" href="catalog">Jackets/Coats</a></li>
+                                    <li><a class="search-list-item" href="catalog">Blazers</a></li>
+                                    <li><a class="search-list-item" href="catalog">Denim</a></li>
+                                    <li><a class="search-list-item" href="catalog">Leggins/Pants</a></li>
+                                    <li><a class="search-list-item" href="catalog">Skirts/Shorts</a></li>
+                                    <li><a class="search-list-item" href="catalog">Accessories</a></li>
+                                </ul>
+                                <a href="#" class="dropdown-search-header">men</a>
+                                <ul class="search-list">
+                                    <li><a class="search-list-item" href="#">Tees/Tank Tops</a></li>
+                                    <li><a class="search-list-item" href="#">Shirts/Polos</a></li>
+                                    <li><a class="search-list-item" href="#">Sweaters</a></li>
+                                    <li><a class="search-list-item" href="#">Sweetshirts/Hoodies</a></li>
+                                    <li><a class="search-list-item" href="#">Blazers</a></li>
+                                    <li><a class="search-list-item" href="#">Jackets/Wests</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="form-input" type="text" required placeholder="Search for item...">
+                        <button class="form-submit" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="header-right">
+                    <div class="header-cart">
+                        <a class="link-to-cart" href="#">
+                            <span class="cart-circle" id="cart_quantity"> {{ cart.count_goods }} </span>
+                            <img src="img/cart.svg" alt="cart">
+                        </a>
+                        <div class="cart-dropdown">
+                            <ul>
+                                {% for product in cart.contents %}
+                                    <li class="cart-item">
+                                        <a href="#"><img class="cart-item-img" src="img/{{ product.img }}"></a>
+                                        <div class="cart-item-info">
+                                            <a class="cart-item-name" href="#"> {{ product.product_name }}</a>
+                                            <span class="cart-item-rate">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </span>
+                                            <span class="cart-item-price">{{ product.quantity }} x {{ product.price }}$</span>
+                                        </div>
+                                        <i class="fa fa-times-circle cart-item-delete" data-id="{{ product.product_id }}"></i>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="cart-total">
+                                <span>TOTAL</span>
+                                <span>${{ cart.amount }}</span>
+                            </div>
+                            <a href="checkout.html">
+                                <div class="cart-checkout">checkout</div>
+                            </a>
+                            <a href="cart.html">
+                                <div class="cart-go-to-cart">go to cart</div>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="button account">My Account <i class="fa fa-caret-down"></i>
+                        <span class="account-dropdown">
+                        <a href="#" class="account-link">Register</a>
+                        <a href="#" class="account-link">Sing in</a>
+                      </span>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <nav class="navigation">
+            <div class="container">
+                <ul class="menu">
+                    <li class="menu-link"><a href="./">Home</a></li>
+                    <li class="menu-link"><a href="review">Reviews</a></li>
+                    <li class="menu-link">
+                        <a href="catalog">Man</a>
+
+                        <div class="menu-link-dropdown">
+                            <div class="menu-link-dropdown-item">
+                                <div class="item-block">
+                                    <a href="catalog" class="dropdown-search-header">Man</a>
+
+                                    <div class="search-line"></div>
+                                    <ul class="menu-link-dropdown-list">
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Dresses</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Tops</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Sweaters/Knits</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Jackets/Coats</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Blazers</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Denim</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Leggins/Pants</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Skirts/Shorts</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Accessories</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu-link-dropdown-item">
+                                <div class="item-block">
+                                    <a href="catalog" class="dropdown-search-header">Man</a>
+
+                                    <div class="search-line"></div>
+                                    <ul class="menu-link-dropdown-list">
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Dresses</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Tops</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Sweaters/Knits</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Jackets/Coats</a></li>
+                                    </ul>
+                                </div>
+                                <div class="item-block">
+                                    <a href="catalog" class="dropdown-search-header">Man</a>
+
+                                    <div class="search-line"></div>
+                                    <ul class="menu-link-dropdown-list">
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Dresses</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Tops</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Sweaters/Knits</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu-link-dropdown-item">
+                                <div class="item-block">
+                                    <a href="catalog" class="dropdown-search-header">Man</a>
+
+                                    <div class="search-line"></div>
+                                    <ul class="menu-link-dropdown-list">
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Dresses</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Tops</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Sweaters/Knits</a></li>
+                                        <li><a class="menu-link-dropdown-list-item" href="catalog">Jackets/Coats</a></li>
+                                    </ul>
+                                </div>
+                                <div class="item-block">
+                                    <a href="catalog"><img class="item-block-img" src="img/dropdown/Layer_42.png" alt="ad"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="menu-link"><a href="catalog">Women</a></li>
+                    <li class="menu-link"><a href="catalog">Kids</a></li>
+                    <li class="menu-link"><a href="catalog">Accoseriese</a></li>
+                    <li class="menu-link"><a href="catalog">Featured</a></li>
+                    <li class="menu-link"><a href="catalog">Hot Deals </a></li>
+                </ul>
+
+            </div>
+        </nav>
