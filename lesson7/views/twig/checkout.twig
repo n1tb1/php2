@@ -1,0 +1,91 @@
+{{ header }}
+{{ breadcrumbs }}
+<form action="{{ site }}checkout" method="post" class="checkout-content">
+  <div class="container">
+    <details class="checkout-accordion" open>
+      <summary>Proceed to checkout</summary>
+      {% if errors.error %}
+        <span class="required-text">{{ errors.error }}</span>
+      {% endif %}
+      <div class="display-horizontal">
+        <div class="display-vertical">
+          <label class="login-label required" for="name"> Name </label>
+          <input type="text" value="{{ name }}" class="login-input" name="name" id="name" required>
+          {% if errors.name %}
+            <span class="required-text">{{ errors.name }}</span>
+          {% endif %}
+        </div>
+        <div class="display-vertical">
+          <label class="login-label required" for="lastname"> Lastname </label>
+          <input type="text" value="{{ lastname }}" class="login-input" name="lastname" id="lastname" required>
+          {% if errors.lastname %}
+            <span class="required-text">{{ errors.lastname }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="display-horizontal">
+        <div class="display-vertical">
+          <label class="login-label required" for="email"> email address</label>
+          <input type="email" value="{{ email }}" class="login-input" name="email" id="email" required>
+          {% if errors.email %}
+            <span class="required-text">{{ errors.email }}</span>
+          {% endif %}
+        </div>
+        <div class="display-vertical">
+          <label class="login-label required" for="telephone"> telephone </label>
+          <input type="text" value="{{ telephone }}" class="login-input" name="telephone" id="telephone" required>
+          {% if errors.telephone %}
+            <span class="required-text">{{ errors.telephone }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="display-vertical">
+        <input type="submit" value="continue" class="checkout-button"/>
+      </div>
+    </details>
+  </div>
+</form>
+<div class="subscribe">
+  <div class="container subscribe-container">
+    <div class="subscribe-left-block">
+      <div class="left-block-content">
+        <a href="#"><img class="subscribe-left-block-img" src="img/subscribe/Layer_40.png" alt="author"></a>
+        <div class="subscribe-left-block-text">
+          <p class="qoute">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+            a pulvinar purus condimentum a. Aliquam condimentum mattis neque sed pretium”</p>
+          <a href="#">
+            <p class="qoute-author">Bin Burhan</p>
+          </a>
+          <p class="qoute-place">Dhaka, Bd</p>
+          <div class="left-block-lines">
+            <a href="#">
+              <div class="gray-line"></div>
+            </a>
+            <a href="#">
+              <div class="pink-line"></div>
+            </a>
+            <a href="#">
+              <div class="gray-line"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subscribe-right-block">
+      <div class="right-block-content">
+        <p class="right-block-content-header">
+          Subscribe
+        </p>
+        <p class="right-block-content-text">
+          FOR OUR NEWLETTER AND PROMOTION
+        </p>
+        <form class="input-block" action="#">
+          <input type="email" class="subscribe-input" placeholder="Enter Your Email">
+          <button type="submit" class="subscribe-button">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}
+

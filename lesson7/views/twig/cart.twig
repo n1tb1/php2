@@ -1,0 +1,93 @@
+{{ header }}
+{{ breadcrumbs }}
+<form action="#" type="post" class="cart-content">
+  <div class="container">
+    <table class="cart-table">
+        <thead>
+        <tr>
+            <th class="cart-table-head">product deals</th>
+            <th class="cart-table-head">unite price</th>
+            <th class="cart-table-head">quantity</th>
+            <th class="cart-table-head">shipping</th>
+            <th class="cart-table-head">subtotal</th>
+            <th class="cart-table-head">action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in cart.contents %}
+            <tr>
+                <td class="cart-table-row">
+                    <div class="cart-product">
+                        <a href="product?id={{ product.product_id }}">
+                            <div class="cart-product-img">
+                                <img src="img/{{ product.img }}" alt="text">
+                            </div>
+                        </a>
+                        <div class="product-text">
+                            <a class="product-link" href="product?id={{ product.product_id }}">
+                              {{ product.product_name }}
+                            </a>
+                            <p class="product-option-text">Color: <span>Red</span></p>
+                            <p class="product-option-text">Size: <span>XXL</span></p>
+                        </div>
+                    </div>
+                </td>
+                <td class="cart-table-row">${{ product.price }}</td>
+                <td class="cart-table-row"><input type="text" name="product_quantity" value="{{ product.quantity }}"></td>
+                <td class="cart-table-row">FREE</td>
+                <td class="cart-table-row">${{ product.price * product.quantity }}</td>
+                <td class="cart-table-row"><a href="#" class="fa fa-times-circle cart-item-delete" data-id="{{ product.product_id }}"></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="cart-buttons">
+        <a href="./" class="cart-button clear-cart" id="clear-cart">
+            CLEAR SHOPPING CART
+        </a>
+        <a href="#" class="cart-button">
+            cONTINUE sHOPPING
+        </a>
+    </div>
+    <div class="cart-forms">
+        <div class="cart-form">
+            <p class="cart-form-header">
+                Shipping Adress
+            </p>
+            <div name="city" id="city" class="cart-form-input">
+                <span>Bangladesh</span>
+                <i class="fa fa-caret-down"></i>
+                <ul class="city-list">
+                    <li><a href="#">Bangladesh</a></li>
+                    <li><a href="#">Bangladesh</a></li>
+                    <li><a href="#">Bangladesh</a></li>
+                </ul>
+            </div>
+            <input class="cart-form-input" type="text" name="state" placeholder="State">
+            <input class="cart-form-input" type="text" name="zipcode" placeholder="Postcode / ZIP">
+            <a href="#" class="cart-form-button">get quote</a>
+        </div>
+        <div class="cart-form">
+            <p class="cart-form-header">
+                Coupon discount
+            </p>
+            <p class="cart-form-text">
+                Enter your coupon code if you have one
+            </p>
+            <input class="cart-form-input" type="text" name="coupon_code" placeholder="Coupon code">
+            <a href="#" class="cart-form-button">apply coupon</a>
+        </div>
+        <div class="cart-form">
+            <p class="cart-sub">
+                subtotal <span>${{ cart.amount }}</span>
+            </p>
+            <p class="cart-form-header">
+                grand total <span>${{ cart.amount }}</span>
+            </p>
+            <a href="{{ site }}checkout" class="cart-checkout-button">proceed to checkout</a>
+        </div>
+    </div>
+  </div>
+</form>
+{{ footer }}
+
