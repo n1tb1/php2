@@ -1,0 +1,28 @@
+{{ header }}
+{{ breadcrumbs }}
+<div class="content">
+  <div class="container">
+      <form action="login" method="post" enctype="multipart/form-data">
+        <p class="shipping-address-header">
+          Already registered?
+        </p>
+        <p class="shipping-address-text">
+          Please login below
+        </p>
+        <div class="display-vertical">
+          <label class="login-label required" for="email"> email address</label>
+          <input type="email" class="login-input" value="{{ email }}" name="email" id="email" required>
+        </div>
+        <div class="display-vertical">
+          <label class="login-label required" for="password"> Password</label>
+          <input type="password" class="login-input" name="password" value="{{ password }}" id="password" required>
+          <span class="required-text">Required Fileds</span>
+        </div>
+        <div class="display-horizontal">
+          <button type="submit" class="checkout-button">log in</button>
+          <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+      </form>
+  </div>
+</div>
+{{ footer }}

@@ -1,0 +1,58 @@
+{{ header }}
+{{ breadcrumbs }}
+<div class="content">
+  <div class="container">
+      <form action="{{ site }}register" method="post" enctype="multipart/form-data">
+        {% if errors.error %}
+          <span class="required-text">{{ errors.error }}</span>
+        {% endif %}
+        <div class="display-vertical">
+          <label class="login-label required" for="name"> Name </label>
+          <input type="text" value="{{ name }}" class="login-input" name="name" id="name" required>
+          {% if errors.name %}
+            <span class="required-text">{{ errors.name }}</span>
+          {% endif %}
+        </div>
+        <div class="display-vertical">
+          <label class="login-label required" for="lastname"> Lastname </label>
+          <input type="text" value="{{ lastname }}" class="login-input" name="lastname" id="lastname" required>
+          {% if errors.lastname %}
+            <span class="required-text">{{ errors.lastname }}</span>
+          {% endif %}
+        </div>
+        <div class="display-vertical">
+          <label class="login-label required" for="email"> email address</label>
+          <input type="email" value="{{ email }}" class="login-input" name="email" id="email" required>
+          {% if errors.email %}
+            <span class="required-text">{{ errors.email }}</span>
+          {% endif %}
+        </div>
+        <div class="display-vertical">
+          <label class="login-label required" for="telephone"> telephone </label>
+          <input type="text" value="{{ telephone }}" class="login-input" name="telephone" id="telephone" required>
+          {% if errors.telephone %}
+            <span class="required-text">{{ errors.telephone }}</span>
+          {% endif %}
+        </div>
+        <div class="display-vertical">
+          <label class="login-label required" for="password"> password</label>
+          <input type="password" value="{{ password }}" class="login-input" name="password" id="password" required>
+          {% if errors.password %}
+            <span class="required-text">{{ errors.password }}</span>
+          {% endif %}
+        </div>
+        <div class="display-vertical">
+          <label class="login-label required" for="confirm"> confirm </label>
+          <input type="password" value="{{ confirm }}" class="login-input" name="confirm" id="confirm" required>
+          {% if errors.confirm %}
+            <span class="required-text">{{ errors.confirm }}</span>
+          {% endif %}
+          <span class="required-text">Required Fileds</span>
+        </div>
+        <div class="display-horizontal">
+          <button type="submit" class="checkout-button">register</button>
+        </div>
+      </form>
+  </div>
+</div>
+{{ footer }}

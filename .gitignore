@@ -1,0 +1,7 @@
+*.md
+*.json
+*.lock
+.gitignore
+.DS_Store
+./*/vendor/
+gitlesson7/vendor/
